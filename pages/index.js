@@ -20,17 +20,24 @@ export default function Home() {
     data: recentarticles,
     loading: reloading,
     error: reerror,
-  } = useQuery(GET_RECENT_SUMMARYS, { pollInterval: 500 });
+  } = useQuery(GET_RECENT_SUMMARYS);
   // const {data: allarticles, loading: allloading, error: allerror} = useQuery(GET_HISTORY_SUMMARY, {pollInterval: 5000});
 
   const [
     createSummary,
     { loading: mutationLoading, error: mutationError },
-  ] = useMutation(CREATE_SUMMARY);
+  ] = useMutation(CREATE_SUMMARY, {refetchQueries: [{
+    query: GET_RECENT_SUMMARYS,
+  
+  }]});
+
   const [
     scrapeSummary,
     { loading: mutationscrapeLoading, error: mutationscrapeError },
-  ] = useMutation(SCRAPE_SUMMARY);
+  ] = useMutation(SCRAPE_SUMMARY, {refetchQueries: [{
+    query: GET_RECENT_SUMMARYS,
+  
+  }]});
 
   if (mutationLoading) return <Loading />;
   if (mutationscrapeLoading) return <Loading />;
@@ -159,9 +166,11 @@ export default function Home() {
             <Panda height={400} width={275} />
             <div className="grid grid-cols-1 flex-col gap-x-3 mt-4">
               <a href="https://github.com/jdranpariya" target="_blank">
+                
                 <div className="border w-auto border-green-500 p-3 text-center rounded-md hover:bg-green-300 hover:border-transparent shadow-2xl font-mono font-bold">
                   About Me
                 </div>
+                
               </a>
             </div>
           </div>
