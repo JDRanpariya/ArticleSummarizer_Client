@@ -56,7 +56,7 @@ export default function Home() {
   // console.log(data)
 
   return (
-    <div className="bg-green-50 pt-7 block overflow-hidden">
+    <div className="bg-green-50 pt-7 block">
       <Head className="bg-green-50">
         <title>Article Summarizer</title>
         <link rel="icon" href="/favicon.ico" />
