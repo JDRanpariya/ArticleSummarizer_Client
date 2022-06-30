@@ -3,7 +3,7 @@ import "./_app.js";
 import { React, useState } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import {
-  GET_HISTORY_SUMMARY,
+  // GET_HISTORY_SUMMARY,
   GET_RECENT_SUMMARYS,
 } from "../lib/queries/getHistory";
 import CREATE_SUMMARY from "../lib/mutations/createSummary";
